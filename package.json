@@ -1,0 +1,22 @@
+{
+  "name": "reservation-system",
+  "version": "2.0.0",
+  "description": "Fifty Six Durham Reservation System",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "fsevents": "^1.2.7",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "author": "tvbf32",
+  "license": "ISC"
+}

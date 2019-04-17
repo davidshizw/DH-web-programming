@@ -1,0 +1,408 @@
+<!-- 写三个section
+https://blog.csdn.net/Bamboo_Dong/article/details/47109699
+写reservation page -->
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fifty Six Durham | Reservation</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.min.css">
+
+  </head>
+  <body>
+    <section class="jumbotron mb-0" id="image"></section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid py-1">
+      <a class="navbar-brand" href="#" id="brand">Fifty Six Durham</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home" id="nav-home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reservation" id="nav-reservation">Reservation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+            </li>
+          </ul>
+          <hr id="nav-separator">
+          <ul class="nav navbar-nav">
+            <li class="nav-item dropdown" id="register-btn" hidden>
+              <a class="nav-link dropdown-toggle" href="#" style="color: white;" data-toggle="dropdown">
+                Register
+              </a>
+              <div id="register-dp" class="dropdown-menu dropdown-menu-right">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="text-center mt-1 mb-3"><h5>Register</h5></div>
+                    <form class="form" method="POST" accept-charset="UTF-8" id="register-form">
+                      <div class="row">
+                        <div class="form-group col-sm-6" id="r1l">
+                          <label class="sr-only" for="register-forename">Forename</label>
+                          <input type="text" class="form-control" id="register-forename" placeholder="Forename" required>
+                        </div>
+                        <div class="form-group col-sm-6" id="r1r">
+                          <label class="sr-only" for="register-surname">Surname</label>
+                          <input type="text" class="form-control" id="register-surname" placeholder="Surname" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-sm-6" id="r2l">
+                          <label class="sr-only" for="register-username">Username</label>
+                          <input type="text" class="form-control" id="register-username" placeholder="Username" required>
+                          <div class="invalid" id="usernameError"></div>
+                        </div>
+                        <div class="form-group col-sm-6" id="r2r">
+                          <label class="sr-only" for="register-phone">Phone</label>
+                          <input type="number" class="form-control" id="register-phone" placeholder="Phone number" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="register-email">Email Address</label>
+                        <input type="email" class="form-control" id="register-email" placeholder="Email address" required>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-sm-6" id="r3l">
+                          <label class="sr-only" for="register-password">Password</label>
+                          <input type="password" class="form-control" name="register-password" id="register-password1" placeholder="Password" required>
+                          <div class="invalid" id="passwordError"></div>
+                        </div>
+                        <div class="form-group col-sm-6" id="r3r">
+                          <label class="sr-only" for="register-password">Confirm Password</label>
+                          <input type="password" class="form-control" id="register-password2" placeholder="Confirm Password" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            <li class="nav-item dropdown" id="login-btn" hidden>
+              <a class="nav-link dropdown-toggle" href="#" style="color: white;" data-toggle="dropdown">
+                Login
+              </a>
+              <div id="login-dp" class="dropdown-menu dropdown-menu-right">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="text-center mt-1 mb-3"><h5>Sign in</h5></div>
+                    <form class="form" method="POST" accept-charset="UTF-8" id="login-form">
+                      <div class="form-group">
+                        <label class="sr-only" for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                        <div class="invalid" id="loginError"></div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" name="/login" class="btn btn-primary btn-block">Sign in</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+        			</div>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-sm btn-primary" type="button" method="GET" id="loginDetails" hidden>View My Account</button>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-sm btn-success" type="button" method="GET" id="logout-btn" hidden>Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <section id="home">
+      <div id="indicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#indicators" data-slide-to="0" class="active"></li>
+          <li data-target="#indicators" data-slide-to="1"></li>
+          <li data-target="#indicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="img/1.jpg" alt="56-1">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="img/2.jpg" alt="56-2">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="img/3.jpg" alt="56-3">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#indicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#indicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+    </section>
+    <section id="reservation">
+      <h1 class="text-center py-3">Make a Reservation!</h1>
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <div>
+            <form class="px-5" id="reservation-form">
+              <div class="form-group">
+                <label class="sr-only" for="date">Date</label>
+                <input type="text" class="form-control" id="datepicker" placeholder="Date" required>
+                <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="sr-only" for="hour">Hour</label>
+                    <select class="custom-select" id="hour" required>
+                      <option value="">Select Hour</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="sr-only" for="quarter">quarter</label>
+                    <select class="custom-select" id="quarter" required>
+                      <option value="">Select Quarter</option>
+                      <option value="00">00</option>
+                      <option value="15">15</option>
+                      <option value="30">30</option>
+                      <option value="45">45</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="size">Party Size</label>
+                <select class="custom-select" id="size" required>
+                  <option value="">Select Party Size</option>
+                  <option value="1">1 person</option>
+                  <option value="2">2 people</option>
+                  <option value="3">3 people</option>
+                  <option value="4">4 people</option>
+                  <option value="5">5 people</option>
+                  <option value="6">6 people</option>
+                  <option value="7">7 people</option>
+                  <option value="8">8 people</option>
+                  <option value="9">9 people</option>
+                  <option value="10">10 people</option>
+                  <option value="11">11 people</option>
+                  <option value="12">12 people</option>
+                  <option value="13">13 people</option>
+                  <option value="14">14 people</option>
+                  <option value="15">15 people</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block mb-3" id="submit-btn">Submit</button>
+              </div>
+              <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmation" aria-hidden="true" id="confirmation-modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-title">Confirmation of Your Reservation</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <ul id="modal-list">
+                        <li>Reservation: <a id="modal-reservation"></a></li>
+                        <li>Party Size: <a id="modal-size"></a></li>
+                        <hr>
+                        <li>Name: <a id="modal-name"></a></li>
+                        <li>Phone: <a id="modal-phone"></a></li>
+                        <hr>
+                        <li id="modal-reminder">Please be aware that your reservation will be held for up to five minutes on reserved date. Otherwise, you reservation will expire.</li>
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                      <button type="submit" class="btn btn-primary" method="POST" id="modal-confirm-btn">Confirm</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-3">
+        </div>
+      </div>
+    </section>
+    <section id="accountInfo" hidden>
+      <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <h2 class="my-3">Your Account Detail</h2>
+          <hr align="left" width="400px">
+          <p><b>Username: </b><a id="account-username"></a></p>
+          <p><b>Forename: </b><a id="account-forename"></a></p>
+          <p><b>Surname: </b><a id="account-surname"></a></p>
+          <p><b>Email: </b><a id="account-email"></a></p>
+          <p><b>Phone: </b><a id="account-phone"></a></p>
+          <form class="form-inline">
+            <div class="form-group">
+              <button id="detail-change-btn" class="btn btn-sm btn-secondary mr-2">Change Account Detail</button>
+            </div>
+            <div class="form-group">
+              <button id="password-change-btn" class="btn btn-sm btn-secondary">Change Password</button>
+            </div>
+          </form>
+          <hr>
+          <h2 class="mb-3">Your Reservation</h2>
+          <div class="mb-4">
+            <div id="toolbar">
+              <button id="remove-reservation-btn" method="DELETE" class="btn btn-sm btn-secondary">remove</button>
+            </div>
+            <table class="table" data-toggle="user-reservation-table" data-toolbar="#toolbar" id="user-reservation-table">
+              <thead>
+                <tr>
+                  <th data-field="state" data-checkbox="true"></th>
+                  <th data-field="id">Reservation ID</th>
+                  <th data-field="date">Date</th>
+                  <th data-field="time">Time</th>
+                  <th data-field="size">Size</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="detail-change-modal" aria-hidden="true" id="detail-change-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Change Account Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="detail-form">
+                <div class="form-group row mb-2">
+                  <label for="change-username" class="col-sm-2 col-form-label">Username</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="change-username" disabled>
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                  <label for="change-forename" class="col-sm-2 col-form-label">Forename</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="change-forename">
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                  <label for="change-surname" class="col-sm-2 col-form-label">Surname</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="change-surname">
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                  <label for="change-phone" class="col-sm-2 col-form-label">Phone</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="change-phone"">
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                  <label for="change-email" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" id="change-email">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+              <button type="submit" class="btn btn-primary" form="detail-form" method="PUT" id="detail-change-confirm-btn">Save Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="password-change-detail" aria-hidden="true" id="password-change-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-title">Change Password</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="password-form">
+                <div class="form-group">
+                  <label for="old-password" class="form-label">Enter previous password</label>
+                  <input type="password" class="form-control" id="old-password" required>
+                  <div class="invalid" id="invalid-old-password"></div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="form-group col-sm-6">
+                    <label for="new-password" class="form-label">Enter new password</label>
+                    <input type="password" class="form-control" id="new-password" required>
+                    <div class="invalid" id="invalid-new-password"></div>
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="new-password" class="form-label">Comfirm password</label>
+                    <input type="password" class="form-control" id="new-password-confirm" required>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+              <button type="submit" class="btn btn-primary" form="password-form" method="PUT" id="password-change-confirm-btn">Save Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer" id="contact">
+     <div class="container">
+       <p>CONTACT US</p>
+       <p>0191 374 1679</p>
+       <hr width="200px" id="footer-separator">
+       <p>Fifty Six Restaurant</p>
+       <p>56 North Road</p>
+       <p>Durham, DH1 4SF</p>
+       <p>Open everyday 12pm to 10pm</p>
+     </div>
+   </footer>
+  </body>
+</html>

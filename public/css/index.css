@@ -1,0 +1,166 @@
+html {
+  min-height: 100%;
+  position: relative;
+  background-color: #343A40;
+}
+
+body{
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+#image {
+  background:url("logo.jpg");
+  background-color: white;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 0px;
+  min-height: 120px;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#register-dp {
+    right:0;
+    min-width: 350px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+
+#register-dp .help-block {
+    font-size:12px
+}
+
+#register-dp .bottom {
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+#register-dp .form-group {
+    margin-bottom: 10px;
+}
+
+#login-dp {
+    right:0;
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+    margin-bottom: 15px;
+}
+
+#login-dp .help-block {
+    font-size:12px
+}
+
+#login-dp .bottom {
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+.invalid{
+  font-size: 12px;
+  color: red;
+}
+
+#modal-list {
+  list-style-type: none;
+}
+
+#modal-reminder {
+  color: grey;
+  font-size: 14px;
+}
+
+.carousel-item {
+  max-height: 400px;
+  background-size: cover;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 200px; /* Set the fixed height of the footer here */
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #343A40;
+}
+
+.container {
+  padding-top: 30px;
+}
+
+.container p {
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  line-height: 0.5;
+}
+
+#nav-separator, #footer-separator {
+  height:0;
+  border:0;
+  border-top:1px solid #919498;
+}
+
+#reservation {
+  background-color: #b7b7b7;
+}
+
+@media (min-width: 576px) {
+  #r1l, #r2l, #r3l {
+    padding-right: 0.25rem;
+  }
+  #r1r, #r2r, #r3r {
+    padding-left: 0.25rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #loginDetails {
+    margin-top: 0.4rem;
+    margin-bottom: 0.25rem;
+  }
+  #logout-btn {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #loginDetails {
+    margin-right: 0.5rem;
+  }
+  #reservation-form {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  #accountInfo {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+  @media (min-width: 576px) {
+    #reservation-form {
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+  }
+}

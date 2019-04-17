@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fifty Six Durham | Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/admin.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.min.css">
+  </head>
+  <body>
+    <section class="jumbotron mb-0" id="image"></section>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid py-1">
+      <a class="navbar-brand" href="#" id="brand">Fifty Six Admin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#dashboard" id="dashboard-nav">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#consumer" id="consumer-nav">Consumer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reservation" id="reservation-nav">Reservation</a>
+          </li>
+        </ul>
+        <hr id="nav-separator">
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            <button class="btn btn-sm btn-success" type="button" method="GET" id="logout-btn">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section id="dashboard">
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+          <h2 class="my-3">Dashboard</h2>
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Today <a id="date"></a></h5>
+                <p class="card-text">Current Time: <a id="time"></a>.</p>
+                <a href="/admin.html" class="btn btn-primary">Refresh</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Today's Reservation</h5>
+                <p class="card-text">You have <a id="today-reservation-number"></a> reservations today.</p>
+                <a href="#reservation" class="btn btn-primary" id="dash-btn1">Search</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">#Consumer</h5>
+                <p class="card-text">You have <a id="consumer-number"></a> consumers registered with this website.</p>
+                <a href="#consumer" class="btn btn-primary" id="dash-btn2">Search</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">#Reservation</h5>
+                <p class="card-text">You received <a id="reservation-number"></a> reservations since this website was established.</p>
+                <a href="#reservation" class="btn btn-primary" id="dash-btn3">Search</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="consumer" hidden>
+      <div class="row mb-4">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+          <h2 class="my-3">Consumer</h2>
+          <table class="table" id="consumer-table">
+            <thead>
+              <tr>
+                <th data-field="username">Username</th>
+                <th data-field="forename">First Name</th>
+                <th data-field="surname">Last Name</th>
+                <th data-field="phone">Phone</th>
+                <th data-field="email">Email</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" hidden>
+      <div class="row mb-4">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+          <h2 class="my-3">Today's Reservation</h2>
+          <table class="table" id="today-reservation-table">
+            <thead>
+              <tr>
+                <th data-field="id">#</th>
+                <th data-field="date">Date</th>
+                <th data-field="time">Time</th>
+                <th data-field="size">Size</th>
+                <th data-field="name">Name</th>
+                <th data-field="phone">Phone</th>
+              </tr>
+            </thead>
+          </table>
+          <h2 class="my-3">Reservation</h2>
+          <table class="table" id="reservation-table">
+            <thead>
+              <tr>
+                <th data-field="id">#</th>
+                <th data-field="date">Date</th>
+                <th data-field="time">Time</th>
+                <th data-field="size">Size</th>
+                <th data-field="name">Name</th>
+                <th data-field="phone">Phone</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+     <div class="container">
+       <p>CONTACT US</p>
+       <p>0191 374 1679</p>
+       <hr width="200px" id="footer-separator">
+       <p>Fifty Six Restaurant</p>
+       <p>56 North Road</p>
+       <p>Durham, DH1 4SF</p>
+       <p>Open everyday 12pm to 10pm</p>
+     </div>
+   </footer>
+  </body>
+</html>
